@@ -7,7 +7,12 @@ public class CharacterControl : MonoBehaviour {
 
 	public float speed = 0.01f;
 	int coins = 0;
+	int hearts = 0;
+	int stars = 0;
 	public Text contadorCoins;
+	public Text contadorHearts;
+	public Text contadorStars;
+
 
 	void OnCollisionEnter2D (Collision2D coll) {
 		if (coll.collider.gameObject.tag == "Coins") {
@@ -19,11 +24,17 @@ public class CharacterControl : MonoBehaviour {
 
 		if (coll.collider.gameObject.tag == "Hearts") {
 			Destroy (coll.collider.gameObject);
+			hearts = hearts + 1;
+			contadorHearts.text = hearts.ToString ();
+
+
 
 		}
 
 		if (coll.collider.gameObject.tag == "Stars") {
 			Destroy (coll.collider.gameObject);
+			stars = stars + 1;
+			contadorStars.text = stars.ToString ();
 
 		}
 	}
